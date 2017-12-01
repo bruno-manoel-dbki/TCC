@@ -1,0 +1,3806 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Module Name="BMD_v3bmd" xmlns="http://waters.sourceforge.net/xsd/module" xmlns:ns2="http://waters.sourceforge.net/xsd/base">
+    <EventDeclList>
+        <EventDecl Kind="PROPOSITION" Name=":accepting"/>
+        <EventDecl Kind="CONTROLLABLE" Name="ECesq_on"/>
+        <EventDecl Kind="CONTROLLABLE" Name="ECesq_off"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SCesq_on"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SCesq_off"/>
+        <EventDecl Kind="CONTROLLABLE" Name="ECdir_on"/>
+        <EventDecl Kind="CONTROLLABLE" Name="ECdir_off"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SCdir_on"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SCdir_off"/>
+        <EventDecl Kind="CONTROLLABLE" Name="EL1_on"/>
+        <EventDecl Kind="CONTROLLABLE" Name="EL1_off"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SL1_on"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SL1_off"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SEx_on"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SEx_off"/>
+        <EventDecl Kind="PROPOSITION" Name=":forbidden"/>
+        <EventDecl Kind="CONTROLLABLE" Name="EL2_off"/>
+        <EventDecl Kind="CONTROLLABLE" Name="EL2_on"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SL2_off"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SL2_on"/>
+        <EventDecl Kind="CONTROLLABLE" Name="EL3_off"/>
+        <EventDecl Kind="CONTROLLABLE" Name="EL3_on"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SL3_off"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SL3_on"/>
+        <EventDecl Kind="CONTROLLABLE" Name="EC2_off"/>
+        <EventDecl Kind="CONTROLLABLE" Name="EC2_on"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SC2_off"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SC2_on"/>
+        <EventDecl Kind="CONTROLLABLE" Name="EC1_off"/>
+        <EventDecl Kind="CONTROLLABLE" Name="EC1_on"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SC1_off"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SC1_on"/>
+        <EventDecl Kind="CONTROLLABLE" Name="EL4_on"/>
+        <EventDecl Kind="CONTROLLABLE" Name="EL4_off"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SL4_off"/>
+        <EventDecl Kind="UNCONTROLLABLE" Name="SL4_on"/>
+        <EventDecl Kind="CONTROLLABLE" Observable="false" Name="tau_c"/>
+        <EventDecl Kind="UNCONTROLLABLE" Observable="false" Name="tau_u"/>
+    </EventDeclList>
+    <ComponentList>
+        <SimpleComponent Kind="PLANT" Name="EsteiraCentralEsquerda">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="64" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="176" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2">
+                        <PointGeometry>
+                            <Point X="288" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S1" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-16" Y="-17"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <EndPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-11" Y="-18"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-6" Y="3"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <StartPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </StartPointGeometry>
+                        <SplineGeometry>
+                            <Point X="174" Y="22"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-12" Y="-19"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <StartPointGeometry>
+                            <Point X="176" Y="64"/>
+                        </StartPointGeometry>
+                        <SplineGeometry>
+                            <Point X="122" Y="93"/>
+                        </SplineGeometry>
+                        <EndPointGeometry>
+                            <Point X="64" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-14" Y="-20"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="234" Y="94"/>
+                        </SplineGeometry>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="PLANT" Name="EsteiraCentralDireita">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="64" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="176" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2">
+                        <PointGeometry>
+                            <Point X="288" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S1" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-16" Y="-17"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <EndPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-11" Y="-18"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-6" Y="3"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <StartPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </StartPointGeometry>
+                        <SplineGeometry>
+                            <Point X="174" Y="22"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-12" Y="-19"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <StartPointGeometry>
+                            <Point X="176" Y="64"/>
+                        </StartPointGeometry>
+                        <SplineGeometry>
+                            <Point X="122" Y="93"/>
+                        </SplineGeometry>
+                        <EndPointGeometry>
+                            <Point X="64" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-14" Y="-20"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="234" Y="94"/>
+                        </SplineGeometry>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="PLANT" Name="SensorExped">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="176" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2">
+                        <PointGeometry>
+                            <Point X="288" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S1" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-16" Y="-17"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <EndPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-14" Y="-20"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="234" Y="94"/>
+                        </SplineGeometry>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="SPEC" Name="E_Dir_Exp">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="160" Y="192"/>
+                        </PointGeometry>
+                        <InitialArrowGeometry>
+                            <Point X="-59" Y="0"/>
+                        </InitialArrowGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="-10" Y="-24"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="272" Y="192"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="-15" Y="-29"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S3">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="272" Y="320"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="-12" Y="12"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S0" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-25" Y="7"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1" Target="S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-78" Y="-11"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-28" Y="-29"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="212" Y="163"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S3" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="10" Y="-15"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="304" Y="256"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="19" Y="-34"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="304" Y="162"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S3" Target="S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="5" Y="-13"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="321" Y="320"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-73" Y="-35"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="112" Y="190"/>
+                        </SplineGeometry>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="SPEC" Name="E_Esq_Exp">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="272" Y="160"/>
+                        </PointGeometry>
+                        <InitialArrowGeometry>
+                            <Point X="28" Y="11"/>
+                        </InitialArrowGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="-12" Y="-30"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="432" Y="160"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="-31" Y="8"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S3">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="432" Y="288"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S0" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-34" Y="-21"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2" Target="S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-69" Y="-9"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-33" Y="-25"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="350" Y="116"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S3" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="11" Y="-15"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="480" Y="219"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="8" Y="-51"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="467" Y="128"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S3" Target="S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-75" Y="-25"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="386" Y="288"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-79" Y="-38"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="225" Y="162"/>
+                        </SplineGeometry>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="SPEC" Name="E_Conflito_Exped">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="176" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="-1" Y="-24"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="288" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="-25"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S1" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-20" Y="-20"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <EndPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-26" Y="4"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="234" Y="94"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_on"/>
+                            <SimpleIdentifier Name="ECesq_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-36" Y="16"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="143" Y="73"/>
+                        </SplineGeometry>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="PLANT" Name="EsteiraCentral1">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="64" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="176" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2">
+                        <PointGeometry>
+                            <Point X="288" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S1" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-16" Y="-17"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <EndPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-11" Y="-18"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-6" Y="3"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <StartPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </StartPointGeometry>
+                        <SplineGeometry>
+                            <Point X="174" Y="22"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-12" Y="-19"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <StartPointGeometry>
+                            <Point X="176" Y="64"/>
+                        </StartPointGeometry>
+                        <SplineGeometry>
+                            <Point X="122" Y="93"/>
+                        </SplineGeometry>
+                        <EndPointGeometry>
+                            <Point X="64" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-14" Y="-20"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="234" Y="94"/>
+                        </SplineGeometry>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="PLANT" Name="EsteiraCentral2">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="64" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="176" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2">
+                        <PointGeometry>
+                            <Point X="288" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S1" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-16" Y="-17"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <EndPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-11" Y="-18"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-6" Y="3"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <StartPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </StartPointGeometry>
+                        <SplineGeometry>
+                            <Point X="174" Y="22"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-12" Y="-19"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <StartPointGeometry>
+                            <Point X="176" Y="64"/>
+                        </StartPointGeometry>
+                        <SplineGeometry>
+                            <Point X="122" Y="93"/>
+                        </SplineGeometry>
+                        <EndPointGeometry>
+                            <Point X="64" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-14" Y="-20"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="234" Y="94"/>
+                        </SplineGeometry>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="PLANT" Name="EsteiraLinha1">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="64" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="176" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2">
+                        <PointGeometry>
+                            <Point X="288" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S1" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-16" Y="-17"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <EndPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-11" Y="-18"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-6" Y="3"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <StartPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </StartPointGeometry>
+                        <SplineGeometry>
+                            <Point X="174" Y="22"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-12" Y="-19"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <StartPointGeometry>
+                            <Point X="176" Y="64"/>
+                        </StartPointGeometry>
+                        <SplineGeometry>
+                            <Point X="122" Y="93"/>
+                        </SplineGeometry>
+                        <EndPointGeometry>
+                            <Point X="64" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-14" Y="-20"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="234" Y="94"/>
+                        </SplineGeometry>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="PLANT" Name="EsteiraLinha2">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="64" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="176" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2">
+                        <PointGeometry>
+                            <Point X="288" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S1" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL2_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-16" Y="-17"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <EndPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL2_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-11" Y="-18"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-6" Y="3"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <StartPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </StartPointGeometry>
+                        <SplineGeometry>
+                            <Point X="174" Y="22"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-12" Y="-19"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <StartPointGeometry>
+                            <Point X="176" Y="64"/>
+                        </StartPointGeometry>
+                        <SplineGeometry>
+                            <Point X="122" Y="93"/>
+                        </SplineGeometry>
+                        <EndPointGeometry>
+                            <Point X="64" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-14" Y="-20"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="234" Y="94"/>
+                        </SplineGeometry>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="PLANT" Name="EsteiraLinha3">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="64" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="176" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2">
+                        <PointGeometry>
+                            <Point X="288" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S1" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL3_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-16" Y="-17"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <EndPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL3_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-11" Y="-18"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL3_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-6" Y="3"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <StartPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </StartPointGeometry>
+                        <SplineGeometry>
+                            <Point X="174" Y="22"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL3_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-12" Y="-19"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <StartPointGeometry>
+                            <Point X="176" Y="64"/>
+                        </StartPointGeometry>
+                        <SplineGeometry>
+                            <Point X="122" Y="93"/>
+                        </SplineGeometry>
+                        <EndPointGeometry>
+                            <Point X="64" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL3_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-14" Y="-20"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="234" Y="94"/>
+                        </SplineGeometry>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="PLANT" Name="EsteiraLinha4">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="64" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="176" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2">
+                        <PointGeometry>
+                            <Point X="288" Y="64"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S1" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL4_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-16" Y="-17"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <EndPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL4_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-11" Y="-18"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL4_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-6" Y="3"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <StartPointGeometry>
+                            <Point X="288" Y="64"/>
+                        </StartPointGeometry>
+                        <SplineGeometry>
+                            <Point X="174" Y="22"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL4_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-12" Y="-19"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <StartPointGeometry>
+                            <Point X="176" Y="64"/>
+                        </StartPointGeometry>
+                        <SplineGeometry>
+                            <Point X="122" Y="93"/>
+                        </SplineGeometry>
+                        <EndPointGeometry>
+                            <Point X="64" Y="64"/>
+                        </EndPointGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL4_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-14" Y="-20"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="234" Y="94"/>
+                        </SplineGeometry>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="SPEC" Name="E_L1_C1">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="128" Y="272"/>
+                        </PointGeometry>
+                        <InitialArrowGeometry>
+                            <Point X="-59" Y="0"/>
+                        </InitialArrowGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="11" Y="-6"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="224" Y="176"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="-6" Y="17"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="224" Y="368"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="-8" Y="-33"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S3">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="320" Y="272"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S0" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="11" Y="-9"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1" Target="S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-31" Y="-4"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="270" Y="218"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-5" Y="-19"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2" Target="S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-31" Y="-14"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-28" Y="-18"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="148" Y="203"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S3" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="11" Y="-12"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="297" Y="202"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-3" Y="14"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="147" Y="337"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S3" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL1_off"/>
+                            <SimpleIdentifier Name="EL1_off"/>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="299" Y="342"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL1_on"/>
+                            <SimpleIdentifier Name="SC1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="15" Y="-3"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="227" Y="146"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC1_on"/>
+                            <SimpleIdentifier Name="SL1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-20" Y="3"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="231" Y="399"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S3" Target="S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC1_on"/>
+                            <SimpleIdentifier Name="SL1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="5" Y="-13"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="349" Y="271"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC1_off"/>
+                            <SimpleIdentifier Name="SL1_off"/>
+                            <SimpleIdentifier Name="EC1_off"/>
+                            <SimpleIdentifier Name="EL1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-43" Y="-31"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="63" Y="270"/>
+                        </SplineGeometry>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="SPEC" Name="E_L2_C2">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="96" Y="208"/>
+                        </PointGeometry>
+                        <InitialArrowGeometry>
+                            <Point X="-59" Y="0"/>
+                        </InitialArrowGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="11" Y="-6"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="192" Y="112"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="-6" Y="17"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="192" Y="304"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="-8" Y="-33"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S3">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="288" Y="208"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S0" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL2_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="11" Y="-9"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1" Target="S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-31" Y="-4"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="238" Y="154"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-5" Y="-19"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2" Target="S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL2_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-31" Y="-14"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-28" Y="-18"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="116" Y="139"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S3" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="11" Y="-12"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="265" Y="138"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-3" Y="14"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="115" Y="273"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S3" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL2_off"/>
+                            <SimpleIdentifier Name="EL2_off"/>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="267" Y="278"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL2_on"/>
+                            <SimpleIdentifier Name="SC2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="15" Y="-3"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="195" Y="82"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                            <SimpleIdentifier Name="SL2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-20" Y="3"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="199" Y="335"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S3" Target="S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                            <SimpleIdentifier Name="SL2_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="5" Y="-13"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="317" Y="207"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_off"/>
+                            <SimpleIdentifier Name="SL2_off"/>
+                            <SimpleIdentifier Name="EC2_off"/>
+                            <SimpleIdentifier Name="EL2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-55" Y="-29"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="66" Y="206"/>
+                        </SplineGeometry>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="SPEC" Name="E_L3_C2">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="160" Y="256"/>
+                        </PointGeometry>
+                        <InitialArrowGeometry>
+                            <Point X="-59" Y="0"/>
+                        </InitialArrowGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="11" Y="-6"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="256" Y="160"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="-6" Y="17"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="256" Y="352"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="-8" Y="-33"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S3">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="352" Y="256"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S0" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL3_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="11" Y="-9"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1" Target="S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-31" Y="-4"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="302" Y="202"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-5" Y="-19"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2" Target="S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL3_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-31" Y="-14"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL3_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-28" Y="-18"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="180" Y="187"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S3" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="11" Y="-12"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="329" Y="186"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-3" Y="14"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="179" Y="321"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S3" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL3_off"/>
+                            <SimpleIdentifier Name="EL3_off"/>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="331" Y="326"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL3_on"/>
+                            <SimpleIdentifier Name="SC2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="15" Y="-3"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="259" Y="130"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                            <SimpleIdentifier Name="SL3_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-20" Y="3"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="263" Y="383"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S3" Target="S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                            <SimpleIdentifier Name="SL3_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="5" Y="-13"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="381" Y="255"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_off"/>
+                            <SimpleIdentifier Name="EL3_off"/>
+                            <SimpleIdentifier Name="SC2_off"/>
+                            <SimpleIdentifier Name="SL3_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-54" Y="-28"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="128" Y="255"/>
+                        </SplineGeometry>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="SPEC" Name="E_L4_C2">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="144" Y="240"/>
+                        </PointGeometry>
+                        <InitialArrowGeometry>
+                            <Point X="-59" Y="0"/>
+                        </InitialArrowGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="11" Y="-6"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="240" Y="144"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="-6" Y="17"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="240" Y="336"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="-8" Y="-33"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S3">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="336" Y="240"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="0" Y="10"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S0" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL4_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="11" Y="-9"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1" Target="S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-31" Y="-4"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="286" Y="186"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-5" Y="-19"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2" Target="S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL4_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-31" Y="-14"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL4_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-28" Y="-18"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="164" Y="171"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S3" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="11" Y="-12"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="313" Y="170"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-3" Y="14"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="163" Y="305"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S3" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL4_off"/>
+                            <SimpleIdentifier Name="EL4_off"/>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="315" Y="310"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1" Target="S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL4_on"/>
+                            <SimpleIdentifier Name="SC2_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="15" Y="-3"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="243" Y="114"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S2" Target="S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                            <SimpleIdentifier Name="SL4_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-20" Y="3"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="247" Y="367"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S3" Target="S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                            <SimpleIdentifier Name="SL4_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="5" Y="-13"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="365" Y="239"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S0" Target="S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_off"/>
+                            <SimpleIdentifier Name="EL4_off"/>
+                            <SimpleIdentifier Name="SC2_off"/>
+                            <SimpleIdentifier Name="SL4_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="-53" Y="-32"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="113" Y="239"/>
+                        </SplineGeometry>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="SUPERVISOR" Name="sup(EsteiraCentralEsquerda||EsteiraCentralDireita||E_Dir_Exp)">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0.S0.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S0.S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S1.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S1.S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S2.S1"/>
+                    <SimpleNode Name="S1.S0.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S0.S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S1.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S1.S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S2.S1"/>
+                    <SimpleNode Name="S2.S0.S0"/>
+                    <SimpleNode Name="S2.S0.S1"/>
+                    <SimpleNode Name="S2.S0.S3"/>
+                    <SimpleNode Name="S2.S1.S0"/>
+                    <SimpleNode Name="S2.S1.S1"/>
+                    <SimpleNode Name="S2.S1.S3"/>
+                    <SimpleNode Name="S2.S2.S1"/>
+                    <SimpleNode Name="S2.S2.S3"/>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S0.S0.S0" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S0.S0" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S0.S1" Target="S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S0.S1" Target="S1.S0.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S0.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S0.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S1" Target="S0.S0.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S1" Target="S0.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S1" Target="S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S1" Target="S0.S0.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S1" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S1" Target="S1.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S0.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S2.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S1" Target="S0.S0.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S1" Target="S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S1" Target="S2.S0.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S1.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S2.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S1" Target="S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S1" Target="S1.S0.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S1" Target="S1.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S1" Target="S2.S1.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S1" Target="S0.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S1" Target="S1.S0.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S1" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S1" Target="S2.S2.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S0" Target="S0.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S0" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S0" Target="S2.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S1" Target="S0.S0.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S1" Target="S1.S0.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S1" Target="S2.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S3" Target="S0.S0.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S3" Target="S1.S0.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S3" Target="S2.S1.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S0" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S0" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S0" Target="S2.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S0" Target="S2.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S1" Target="S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S1" Target="S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S1" Target="S2.S0.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S1" Target="S2.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S3" Target="S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S3" Target="S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S3" Target="S2.S2.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S1" Target="S0.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S1" Target="S1.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S1" Target="S2.S0.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S1" Target="S2.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S0.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S1.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S2.S1.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="SUPERVISOR" Name="sup(EsteiraCentralEsquerda||EsteiraCentralDireita||E_Esq_Exp)">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0.S0.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S0.S2">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S1.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S1.S2">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S2.S0"/>
+                    <SimpleNode Name="S0.S2.S2"/>
+                    <SimpleNode Name="S0.S2.S3"/>
+                    <SimpleNode Name="S1.S0.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S0.S2">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S1.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S1.S2">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S2.S0"/>
+                    <SimpleNode Name="S1.S2.S2"/>
+                    <SimpleNode Name="S1.S2.S3"/>
+                    <SimpleNode Name="S2.S0.S2"/>
+                    <SimpleNode Name="S2.S1.S2"/>
+                    <SimpleNode Name="S2.S2.S2"/>
+                    <SimpleNode Name="S2.S2.S3"/>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S0.S0.S0" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S0.S0" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S0.S2" Target="S0.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S0.S2" Target="S1.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S0.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S0.S2.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S2" Target="S0.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S2" Target="S0.S2.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S2" Target="S1.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S0" Target="S0.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S0" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S0" Target="S1.S2.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S2" Target="S0.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S2" Target="S0.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S2" Target="S1.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S3" Target="S0.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S3" Target="S0.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S3" Target="S1.S2.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S0.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S2.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S2" Target="S0.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S2" Target="S1.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S2" Target="S2.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S1.S2.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S2.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S2" Target="S0.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S2" Target="S1.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S2" Target="S1.S2.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S2" Target="S2.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S0" Target="S0.S2.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S0" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S0" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S0" Target="S2.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S2" Target="S0.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S2" Target="S1.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S2" Target="S1.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S2" Target="S2.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S3" Target="S1.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S3" Target="S1.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S3" Target="S2.S2.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S2" Target="S0.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S2" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S2" Target="S2.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S2" Target="S0.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S2" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S2" Target="S2.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S2" Target="S2.S2.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S2" Target="S0.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S2" Target="S1.S2.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S2" Target="S2.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S2" Target="S2.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S1.S2.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S2.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S2.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="SUPERVISOR" Name="sup(EsteiraCentralEsquerda||EsteiraCentralDireita||EsteiraExped||E_Conflito_Exped)">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0.S0.S1.S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S0.S2.S2"/>
+                    <SimpleNode Name="S0.S1.S1.S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S1.S2.S2"/>
+                    <SimpleNode Name="S0.S2.S1.S1"/>
+                    <SimpleNode Name="S0.S2.S2.S2"/>
+                    <SimpleNode Name="S1.S0.S1.S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S0.S2.S2"/>
+                    <SimpleNode Name="S1.S1.S1.S1">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S1.S2.S2"/>
+                    <SimpleNode Name="S1.S2.S1.S1"/>
+                    <SimpleNode Name="S1.S2.S2.S2"/>
+                    <SimpleNode Name="S2.S0.S1.S1"/>
+                    <SimpleNode Name="S2.S0.S2.S2"/>
+                    <SimpleNode Name="S2.S1.S1.S1"/>
+                    <SimpleNode Name="S2.S1.S2.S2"/>
+                    <SimpleNode Name="S2.S2.S1.S1"/>
+                    <SimpleNode Name="S2.S2.S2.S2"/>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S0.S0.S1.S1" Target="S0.S0.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S0.S1.S1" Target="S0.S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S0.S1.S1" Target="S1.S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S0.S2.S2" Target="S0.S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S1.S1" Target="S0.S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S1.S1" Target="S0.S1.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S1.S1" Target="S0.S2.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S1.S1" Target="S1.S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S2.S2" Target="S0.S0.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S2.S2" Target="S0.S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S2.S2" Target="S0.S2.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S1.S1" Target="S0.S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S1.S1" Target="S0.S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S1.S1" Target="S0.S2.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S1.S1" Target="S1.S2.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S2.S2" Target="S0.S0.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S2.S2" Target="S0.S1.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S2.S2" Target="S0.S2.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S1.S1" Target="S0.S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S1.S1" Target="S1.S0.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S1.S1" Target="S1.S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S1.S1" Target="S2.S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S2.S2" Target="S0.S0.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S2.S2" Target="S1.S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S2.S2" Target="S2.S0.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S1.S1" Target="S0.S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S1.S1" Target="S1.S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S1.S1" Target="S1.S1.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S1.S1" Target="S1.S2.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S1.S1" Target="S2.S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S2.S2" Target="S0.S1.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S2.S2" Target="S1.S0.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S2.S2" Target="S1.S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S2.S2" Target="S1.S2.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S2.S2" Target="S2.S1.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S1.S1" Target="S0.S2.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S1.S1" Target="S1.S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S1.S1" Target="S1.S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S1.S1" Target="S1.S2.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S1.S1" Target="S2.S2.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S2.S2" Target="S0.S2.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S2.S2" Target="S1.S0.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S2.S2" Target="S1.S1.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S2.S2" Target="S1.S2.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S2.S2" Target="S2.S2.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S1.S1" Target="S0.S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S1.S1" Target="S1.S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S1.S1" Target="S2.S0.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S1.S1" Target="S2.S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S2.S2" Target="S0.S0.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S2.S2" Target="S1.S0.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S2.S2" Target="S2.S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S1.S1" Target="S0.S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S1.S1" Target="S1.S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S1.S1" Target="S2.S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S1.S1" Target="S2.S1.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S1.S1" Target="S2.S2.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S2.S2" Target="S0.S1.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S2.S2" Target="S1.S1.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S2.S2" Target="S2.S0.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S2.S2" Target="S2.S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S2.S2" Target="S2.S2.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S1.S1" Target="S0.S2.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S1.S1" Target="S1.S2.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S1.S1" Target="S2.S0.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S1.S1" Target="S2.S1.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S1.S1" Target="S2.S2.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S2.S2" Target="S0.S2.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S2.S2" Target="S1.S2.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCesq_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S2.S2" Target="S2.S0.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="ECdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S2.S2" Target="S2.S1.S2.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SCdir_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S2.S2" Target="S2.S2.S1.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SEx_off"/>
+                        </LabelBlock>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="SUPERVISOR" Name="sup(EsteiraCentral1||EsteiraLinha1||E_L1_C1)">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0.S0.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="69" Y="80"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="5" Y="5"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S1.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="73" Y="170"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="5" Y="5"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S2.S1">
+                        <PointGeometry>
+                            <Point X="85" Y="256"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="5" Y="5"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S0.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="161" Y="70"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="5" Y="5"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S1.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                        <PointGeometry>
+                            <Point X="167" Y="157"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="5" Y="5"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S2.S1">
+                        <PointGeometry>
+                            <Point X="193" Y="237"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="5" Y="5"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2.S0.S2">
+                        <PointGeometry>
+                            <Point X="260" Y="84"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="5" Y="5"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2.S1.S2">
+                        <PointGeometry>
+                            <Point X="258" Y="144"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="5" Y="5"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                    <SimpleNode Name="S2.S2.S3">
+                        <PointGeometry>
+                            <Point X="279" Y="190"/>
+                        </PointGeometry>
+                        <LabelGeometry Anchor="NW">
+                            <Point X="5" Y="5"/>
+                        </LabelGeometry>
+                    </SimpleNode>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S0.S0.S0" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S0.S0" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S0.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="50" Y="123"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S0.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="117" Y="175"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S0.S2.S1" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="59" Y="219"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S0.S2.S1" Target="S1.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="137" Y="258"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S0.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="110" Y="54"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="152" Y="111"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S2.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="214" Y="75"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="114" Y="153"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="174" Y="108"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S1.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="169" Y="205"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S2.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="216" Y="161"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1.S2.S1" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="190" Y="199"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S1.S2.S1" Target="S2.S2.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="247" Y="234"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S2.S0.S2" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="214" Y="54"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S2.S0.S2" Target="S2.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="267" Y="110"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S2.S1.S2" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="213" Y="139"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S2.S1.S2" Target="S2.S2.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL1_on"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="288" Y="164"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S1.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="239" Y="215"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S2.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="285" Y="133"/>
+                        </SplineGeometry>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S2.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL1_off"/>
+                            <LabelGeometry Anchor="NW">
+                                <Point X="0" Y="10"/>
+                            </LabelGeometry>
+                        </LabelBlock>
+                        <SplineGeometry>
+                            <Point X="267" Y="173"/>
+                        </SplineGeometry>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="SUPERVISOR" Name="sup(EsteiraCentral2||EsteiraLinha2||E_L2_C2)">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0.S0.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S1.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S2.S1"/>
+                    <SimpleNode Name="S1.S0.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S1.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S2.S1"/>
+                    <SimpleNode Name="S2.S0.S2"/>
+                    <SimpleNode Name="S2.S1.S2"/>
+                    <SimpleNode Name="S2.S2.S3"/>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S0.S0.S0" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S0.S0" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S0.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S0.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S1" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S1" Target="S1.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S0.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S2.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S1.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S2.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S1" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S1" Target="S2.S2.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S2" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S2" Target="S2.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S2" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S2" Target="S2.S2.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S1.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S2.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S2.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="SUPERVISOR" Name="sup(EsteiraCentral2||EsteiraLinha3||E_L3_C2)">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0.S0.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S1.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S2.S1"/>
+                    <SimpleNode Name="S1.S0.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S1.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S2.S1"/>
+                    <SimpleNode Name="S2.S0.S2"/>
+                    <SimpleNode Name="S2.S1.S2"/>
+                    <SimpleNode Name="S2.S2.S3"/>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S0.S0.S0" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL3_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S0.S0" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S0.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL3_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S0.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL3_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S1" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL3_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S1" Target="S1.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S0.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL3_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S2.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL3_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S1.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL3_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S2.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S1" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL3_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S1" Target="S2.S2.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S2" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S2" Target="S2.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL3_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S2" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S2" Target="S2.S2.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL3_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S1.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S2.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL3_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S2.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL3_off"/>
+                        </LabelBlock>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+        <SimpleComponent Kind="SUPERVISOR" Name="sup(EsteiraCentral2||EsteiraLinha4||E_L4_C2)">
+            <Graph>
+                <NodeList>
+                    <SimpleNode Initial="true" Name="S0.S0.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S1.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S0.S2.S1"/>
+                    <SimpleNode Name="S1.S0.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S1.S0">
+                        <EventList>
+                            <SimpleIdentifier Name=":accepting"/>
+                        </EventList>
+                    </SimpleNode>
+                    <SimpleNode Name="S1.S2.S1"/>
+                    <SimpleNode Name="S2.S0.S2"/>
+                    <SimpleNode Name="S2.S1.S2"/>
+                    <SimpleNode Name="S2.S2.S3"/>
+                </NodeList>
+                <EdgeList>
+                    <Edge Source="S0.S0.S0" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL4_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S0.S0" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S0.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL4_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S0.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL4_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S1.S0" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S1" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL4_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S0.S2.S1" Target="S1.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S0.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL4_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S0.S0" Target="S2.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S0.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EC2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL4_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S1.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL4_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S1.S0" Target="S2.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S1" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL4_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S1.S2.S1" Target="S2.S2.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S2" Target="S1.S0.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S0.S2" Target="S2.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL4_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S2" Target="S1.S1.S0">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S1.S2" Target="S2.S2.S3">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL4_on"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S1.S2.S1">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SC2_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S2.S0.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="EL4_off"/>
+                        </LabelBlock>
+                    </Edge>
+                    <Edge Source="S2.S2.S3" Target="S2.S1.S2">
+                        <LabelBlock>
+                            <SimpleIdentifier Name="SL4_off"/>
+                        </LabelBlock>
+                    </Edge>
+                </EdgeList>
+            </Graph>
+        </SimpleComponent>
+    </ComponentList>
+</Module>
